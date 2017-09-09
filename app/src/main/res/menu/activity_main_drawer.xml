@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_profile"
+            android:title="My account" />
+        <item
+            android:id="@+id/nav_eventos"
+            android:icon="@drawable/ic_menu_tipo_evento"
+            android:title="Fornecedores" />
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@drawable/ic_menu_navigation"
+            android:title="Buffets" />
+    </group>
+
+    <item android:title="App">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_menu_settings"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_menu_copyright"
+                android:title="@string/about" />
+            <item
+                android:id="@+id/nav_classify"
+                android:icon="@drawable/ic_classify"
+                android:title="Classify this app" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_menu_logout"
+                android:title="Logout" />
+        </menu>
+    </item>
+</menu>

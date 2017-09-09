@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+    <!-->o 88 é necessário para a transparencia</-->
+    <solid android:color="#88cccccc"/>
+    <stroke android:width="1dip" android:color="#fff" />
+    <corners android:radius="10dp"/>
+</shape>

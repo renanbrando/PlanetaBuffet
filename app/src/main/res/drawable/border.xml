@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+<!--We need to create a layout for each of our list items, but,
+before we do that, we need to define a border for each of our list items.
+ListView did this for us, but we need to do this as well-->
+
+    <solid android:color="#FFFFFF" />
+    <stroke
+        android:width="1dp"
+        android:color="#CCCCCC" />
+</shape>
+
