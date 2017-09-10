@@ -46,4 +46,4 @@ dependencies {
 }
 
 //tem que ser colocado no final do arquivo, caso contrário não será aplicado no seu projeto
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
