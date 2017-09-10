@@ -11,6 +11,13 @@
         android:layout_height="wrap_content"
         android:text="Pic Date"
         android:onClick="datePicker"/>
+
+    <DatePicker
+        android:id="@+id/simpleDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner" />
+
     <TextView
         android:layout_below="@+id/picDate"
         android:layout_width="match_parent"
