@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.gmail.jumpercorderosa.planetabuffet.adapter.IconAdapter;
 import com.gmail.jumpercorderosa.planetabuffet.adapter.IconData;
 import com.gmail.jumpercorderosa.planetabuffet.R;
 import com.gmail.jumpercorderosa.planetabuffet.db.DBHandler;
@@ -27,10 +28,12 @@ public class SuppliersActivity extends AppCompatActivity {
         db = new DBHandler(this);
 
         //receber o seguimento da outra activity
+        /*
         Intent intent = getIntent();
         if( intent != null) {
             int seguiment_id = intent.getIntExtra("seguiment_id", 0);
         }
+        */
 
         //obtem lista de segmento de fornecedores
         List<Supplier> listSeg = db.getAllSuppliers();
@@ -38,20 +41,28 @@ public class SuppliersActivity extends AppCompatActivity {
 
         //Unfortunately android does not have Arrays.add()
         //You can't "add" a value to an array. Once you've created it, the size is fixed.
-        List<IconData> data = new ArrayList<IconData>();
+        List<IconData> myList = new ArrayList<IconData>();
 
         //percorre objetos da lista
         for(Supplier obj : listSeg) {
-            //data.add(new IconData(obj.getName(), android.R.drawable.ic_rv_supplier.png));
+            obj.getName();
+
+            myList.add(new IconData(obj.getName(),
+                    getResources().getIdentifier(
+                        "ic_rv_supplier",
+                        "drawable",
+                        getApplicationContext().getPackageName())));
+
         }
 
-        //Esta dando pau aqui também pelo mesmo motivo
+        IconData[] data = myList.toArray(new IconData[myList.size()]);
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycleView);
-        //IconAdapter adapter = new IconAdapter(data);
+        IconAdapter adapter = new IconAdapter(data);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
 
     }
 

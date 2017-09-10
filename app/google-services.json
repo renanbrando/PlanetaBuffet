@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1042880791424",
+    "firebase_url": "https://green-gasket-178120.firebaseio.com",
+    "project_id": "green-gasket-178120",
+    "storage_bucket": "green-gasket-178120.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042880791424:android:d63524f9ee8ba198",
+        "android_client_info": {
+          "package_name": "com.gmail.jumpercorderosa.planetabuffet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042880791424-ou8crgfg88tanefne8oetnhcjvivbab3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gmail.jumpercorderosa.planetabuffet",
+            "certificate_hash": "3ed51706c6e53a22e02fe7853a1c978404caed00"
+          }
+        },
+        {
+          "client_id": "1042880791424-k21amsvnl291egp2giq0q1ji20e6vn5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFNXNyz1ONv76ddiP5dUpn9tphxHKbmVI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042880791424-k21amsvnl291egp2giq0q1ji20e6vn5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

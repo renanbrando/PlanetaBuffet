@@ -1,5 +1,6 @@
 package com.gmail.jumpercorderosa.planetabuffet.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gmail.jumpercorderosa.planetabuffet.R;
+import com.gmail.jumpercorderosa.planetabuffet.activity.LoginActivity;
+import com.gmail.jumpercorderosa.planetabuffet.activity.MainActivity;
+import com.gmail.jumpercorderosa.planetabuffet.activity.SuppliersActivity;
 
 /**
  * Created by danielle on 19/08/2017.
@@ -62,11 +66,19 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.ViewHolder> {
             this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
             this.textView = (TextView) itemView.findViewById(R.id.textView);
 
-            this.imageView.setOnClickListener(new View.OnClickListener() {
+            final String text = textView.getText().toString();
+
+            this.textView.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View v) {
                     int id = v.getId();
-                    Toast.makeText(v.getContext(), "Clicou no obj [" + Integer.toString(id) + "]", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), "Clicou no obj [" + text + "]", Toast.LENGTH_SHORT).show();
+
+                    /*
+                    Intent intent = new Intent(LoginActivity.this, SuppliersActivity.class);
+                    startActivity(intent);
+                    */
+
                 }
             });
         }

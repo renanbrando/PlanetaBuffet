@@ -262,19 +262,19 @@ public class DBHandler extends SQLiteOpenHelper {
                     + " VALUES (2, 'Bar', 'ic_rv_bar.png')");
 
             db.execSQL(insert_aux
-                    + " VALUES (3, 'Carrinho de doces', 'ic_rv_candy.png')");
+                    + " VALUES (3, 'Carrinho de Doces', 'ic_rv_candy.png')");
 
             db.execSQL(insert_aux
-                    + " VALUES (4, 'Cabine fotográfica', 'ic_rv_photo_booth.png')");
+                    + " VALUES (4, 'Cabine Fotográfica', 'ic_rv_photo_booth.png')");
 
             db.execSQL(insert_aux
-                    + " VALUES (5, 'Foto filmagem', 'ic_rv_filming.pnh')");
+                    + " VALUES (5, 'Foto Filmagem', 'ic_rv_filming.pnh')");
 
             db.execSQL(insert_aux
-                    + " VALUES (6, 'Robô de led', 'ic_rv_robot.png')");
+                    + " VALUES (6, 'Robô de Led', 'ic_rv_robot.png')");
 
             db.execSQL(insert_aux
-                    + " VALUES (7, 'Cascata de chocolate', 'ic_chocolate_cascade.png')");
+                    + " VALUES (7, 'Cascata de Chocolate', 'ic_chocolate_cascade.png')");
 
             //db.execSQL(insert_aux
             //        + " VALUES (8, 'Chopp', 'xxx.png')");
@@ -283,7 +283,7 @@ public class DBHandler extends SQLiteOpenHelper {
                     + " VALUES (9, 'Decoração', 'ic_rv_decoration.png')");
 
             db.execSQL(insert_aux
-                    + " VALUES (10, 'Filmagens aéreas com Drone', 'ic_rv_drone.png')");
+                    + " VALUES (10, 'Filmagens Aéreas com Drone', 'ic_rv_drone.png')");
 
             db.execSQL(insert_aux
                     + " VALUES (11, 'Lembrancinhas', 'ic_rv_gift.png')");
@@ -307,7 +307,7 @@ public class DBHandler extends SQLiteOpenHelper {
                     + " VALUES (17, 'Alfaiataria', 'ic_rv_tailor.png')");
 
             db.execSQL(insert_aux
-                    + " VALUES (18, 'Aluguel de carros', 'ic_rv_car.png')");
+                    + " VALUES (18, 'Aluguel de Carros', 'ic_rv_car.png')");
 
             db.execSQL(insert_aux
                     + " VALUES (20, 'DJ', 'ic_rv_dj.png')");

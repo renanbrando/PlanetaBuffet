@@ -7,12 +7,10 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -27,8 +25,8 @@ import com.gmail.jumpercorderosa.planetabuffet.R;
 import com.gmail.jumpercorderosa.planetabuffet.db.DBHandler;
 import com.gmail.jumpercorderosa.planetabuffet.fragments.CountdownFragment;
 import com.gmail.jumpercorderosa.planetabuffet.fragments.EventsFragment;
-import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
+import com.gmail.jumpercorderosa.planetabuffet.fragments.FirstStepsFragment;
 import com.gmail.jumpercorderosa.planetabuffet.model.User;
 
 public class MainActivity extends AppCompatActivity
@@ -93,16 +91,16 @@ public class MainActivity extends AppCompatActivity
 
         db = new DBHandler(this);
 
-        User user = null;
-        user = db.getUser(user_id);
+        final User user = db.getUser(user_id);
 
         if(user != null) {
 
-            if(user.getBuffetId() != 0) {
-                trocaFragmento(R.id.main_fragment, new CountdownFragment());
-            } else {
+            //TODO
+            //if(user.getBuffetId() != 0) {
                 trocaFragmento(R.id.main_fragment, new EventsFragment());
-            }
+            //} else {
+                //trocaFragmento(R.id.main_fragment, new FirstStepsFragment());
+            //}
 
         }
     }

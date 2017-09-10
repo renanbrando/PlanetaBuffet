@@ -96,9 +96,8 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                //verifica se o usuario/senha estão na base, ou faz um baca
-                if (db.checkUser(email, password) ||
-                        (email.equals("dani") && password.equals("dani"))) {
+                //verifica se o usuario/senha estão na base
+                if (db.checkUser(email, password)) {
 
                     //salva USER_ID no sharedPreferences
                     int user_id = db.getUserId(email);
@@ -111,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                     // btnLogin.setEnabled(true);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
-                    LoginActivity.this.finish(); //destroe esta activity, para não voltar para tela de splash
+                    LoginActivity.this.finish();    //destroe esta activity, para não voltar para tela de splash
 
                 } else {
                     //Login ou senha inválidos

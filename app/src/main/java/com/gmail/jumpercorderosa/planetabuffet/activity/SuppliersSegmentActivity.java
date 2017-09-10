@@ -47,7 +47,6 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
 
         //percorre objetos da lista
         for(SupplierSegment obj : listSeg) {
-            obj.getSupplierSegmentDesc();
 
             myList.add(new IconData(obj.getSupplierSegmentDesc(),
                     getResources().getIdentifier(

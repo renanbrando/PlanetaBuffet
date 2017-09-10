@@ -16,24 +16,21 @@ import com.facebook.share.widget.ShareDialog;
 import com.gmail.jumpercorderosa.planetabuffet.R;
 import com.squareup.picasso.Picasso;
 
-/**
- * Created by Dani on 31/08/2017.
- */
-
 public class CountdownFragment extends Fragment {
 
     ImageView imgWedding;
     ShareDialog shareDialog;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_countdown, container, false);
 
+        /*
         shareDialog = new ShareDialog(this);
 
         //float icon do ladinho
+
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +46,7 @@ public class CountdownFragment extends Fragment {
                 }
             }
         });
+        */
 
         //ImageViews vazias
         imgWedding = (ImageView) view.findViewById(R.id.img_wedding);
