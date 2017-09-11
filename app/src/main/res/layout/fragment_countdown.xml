@@ -4,20 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/content_countdown">
+    android:id="@+id/fragment_countdown">
 
-    <ImageView
+    <!--ImageView
         android:id="@+id/img_countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="150dp"
         android:layout_marginTop="50dp"
         android:scaleType="centerInside"
-        android:src="@drawable/img_anniversary_purple" />
+        android:src="@drawable/img_wedding_purple" /-->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Faltam 20 dias para sua festa!" />
+        android:text="Faltam" />
+
+    <TextView
+        android:id="@+id/tvCountdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dias para o seu evento! =)" />
 
 </LinearLayout>

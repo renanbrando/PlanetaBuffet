@@ -1,5 +1,6 @@
 package com.gmail.jumpercorderosa.planetabuffet.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import java.util.List;
 public class SuppliersSegmentActivity extends AppCompatActivity {
 
     private DBHandler db;
+    public int current_supplier_segment_id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +33,8 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
         //obtem lista de segmento de fornecedores
         List<SupplierSegment> listSeg = db.getAllSuppliersSegment();
 
-        //Como esta no exemplo
-
         /*
+        //Como esta no exemplo
         IconData[] data = new IconData[] {
                 new IconData("Delete", android.R.drawable.ic_delete),
                 new IconData("Alert", android.R.drawable.ic_dialog_alert)
@@ -41,25 +42,25 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
         */
 
         //Como tentei usar e não consigo
-        //List<IconData> data = new ArrayList<IconData>();
         List<IconData> myList = new ArrayList<>();
-        //IconData[] data = new IconData[]{};
 
         //percorre objetos da lista
         for(SupplierSegment obj : listSeg) {
+
+            int x = obj.getSupplierSegmentId();
 
             myList.add(new IconData(obj.getSupplierSegmentDesc(),
                     getResources().getIdentifier(
                             obj.getSegmentImgName(),
                             "drawable",
-                            getApplicationContext().getPackageName())));
+                            getApplicationContext().getPackageName()), obj.getSupplierSegmentId(), 0));
 
         }
 
         IconData[] data = myList.toArray(new IconData[myList.size()]);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycleView);
-        IconAdapter adapter = new IconAdapter(data);
+        IconAdapter adapter = new IconAdapter(data, this, null);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -67,12 +68,19 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
 
         //Depois preciso passar o seguimento para a outra activity
         //para mostrar apenas os fornecedores daquele seguimento...
-        /*
-        Intent intent = new Intent(this, SuppliersActivity.class);
-        intent.putString("seguiment_id", obj.getSupplierSegmentId(););// if its string type
-        startActivity(intent);
-        */
+
+        //Intent intent = new Intent(this, SuppliersActivity.class);
+        //intent.putExtra("seguiment_id", current_supplier_segment_id);
+        //startActivity(intent);
+
 
     }
+    /*
+    public void trocaActivity(int supplier_segment_id) {
+        Intent intent = new Intent(this, SuppliersActivity.class);
+        intent.putExtra("seguiment_id", supplier_segment_id);
+        startActivity(intent);
+    }
+    */
 
 }

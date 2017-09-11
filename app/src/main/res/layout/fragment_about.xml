@@ -5,19 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/activity_supplier_detail"
-    tools:context="com.gmail.jumpercorderosa.planetabuffet.activity.SupplierDetailActivity">
+    android:id="@+id/fragment_about"
+    tools:context="com.gmail.jumpercorderosa.planetabuffet.fragments.AboutFragment">
 
-    <Button
-        android:id="@+id/btnCall"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CALL"/>
-
-    <CheckBox
-        android:id="@+id/cbFavorite"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save to your favorites"/>
+        android:text="Developed by Danielle Pereira"/>
 
 </LinearLayout>

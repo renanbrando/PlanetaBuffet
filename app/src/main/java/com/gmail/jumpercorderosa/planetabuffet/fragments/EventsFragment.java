@@ -15,6 +15,7 @@ import com.gmail.jumpercorderosa.planetabuffet.db.DBHandler;
 import com.gmail.jumpercorderosa.planetabuffet.model.User;
 import com.squareup.picasso.Picasso;
 
+import static com.gmail.jumpercorderosa.planetabuffet.activity.MainActivity.PREFS_NAME;
 import static com.gmail.jumpercorderosa.planetabuffet.activity.MainActivity.trocaFragmento;
 
 public class EventsFragment extends Fragment {
@@ -25,8 +26,6 @@ public class EventsFragment extends Fragment {
     ImageView imgAnniversary;
     ImageView imgSweetFifteen;
     ImageView imgCompanies;
-
-    private static final String PREFS_NAME = "pref";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,7 +39,6 @@ public class EventsFragment extends Fragment {
         SharedPreferences sharedPref = getContext().getSharedPreferences(PREFS_NAME, getContext().MODE_PRIVATE);
         int user_id = sharedPref.getInt("user_id", 0);
 
-        int aux = db.getUsersCount();
         final User user = db.getUser(user_id);
 
         //ImageViews vazias

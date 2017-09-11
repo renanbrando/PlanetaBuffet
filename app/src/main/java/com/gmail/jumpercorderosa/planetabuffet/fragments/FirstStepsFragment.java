@@ -19,21 +19,19 @@ public class FirstStepsFragment extends Fragment {
 
     private DBHandler db;
 
-    Button btnOk;
+    Button btnEventSettings;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View view = inflater.inflate(R.layout.fragment_first_steps, container, false);
 
         //setHasOptionsMenu(true);
+        btnEventSettings = (Button) view.findViewById(R.id.btnEventSettings);
 
-        btnOk = (Button) view.findViewById(R.id.btnOK);
-
-        btnOk.setOnClickListener(new View.OnClickListener() {
+        btnEventSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Wedding", Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(getContext(), "Wedding", Toast.LENGTH_SHORT).show();
                 trocaFragmento(R.id.main_fragment, new EventsFragment());
             }
         });

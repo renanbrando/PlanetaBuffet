@@ -27,17 +27,18 @@ public class SuppliersActivity extends AppCompatActivity {
         //obtem uma instancia do DB
         db = new DBHandler(this);
 
+        int seguiment_id = 0;
+
         //receber o seguimento da outra activity
-        /*
         Intent intent = getIntent();
         if( intent != null) {
-            int seguiment_id = intent.getIntExtra("seguiment_id", 0);
+            seguiment_id = intent.getIntExtra("seguiment_id", 0);
         }
-        */
+
 
         //obtem lista de segmento de fornecedores
-        List<Supplier> listSeg = db.getAllSuppliers();
-
+        //List<Supplier> listSeg = db.getAllSuppliers();
+        List<Supplier> listSeg = db.getAllSuppliersBySegment(seguiment_id);
 
         //Unfortunately android does not have Arrays.add()
         //You can't "add" a value to an array. Once you've created it, the size is fixed.
@@ -51,14 +52,14 @@ public class SuppliersActivity extends AppCompatActivity {
                     getResources().getIdentifier(
                         "ic_rv_supplier",
                         "drawable",
-                        getApplicationContext().getPackageName())));
+                        getApplicationContext().getPackageName()), 0, obj.getId()));
 
         }
 
         IconData[] data = myList.toArray(new IconData[myList.size()]);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycleView);
-        IconAdapter adapter = new IconAdapter(data);
+        IconAdapter adapter = new IconAdapter(data, null, this);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

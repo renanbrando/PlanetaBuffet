@@ -81,8 +81,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //antes fazia o login pelo email, portanto tvEmail eh tvLogin (arrumar)
-                String email = tvEmail.getText().toString();
-                String password = etPassword.getText().toString();
+                String email = tvEmail.getText().toString().trim();
+                String password = etPassword.getText().toString().trim();
 
                 if(email.equals("")) {
                         //|| !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {

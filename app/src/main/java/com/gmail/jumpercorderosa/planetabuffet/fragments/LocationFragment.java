@@ -14,12 +14,12 @@ import com.gmail.jumpercorderosa.planetabuffet.db.DBHandler;
 import com.gmail.jumpercorderosa.planetabuffet.model.User;
 import com.squareup.picasso.Picasso;
 
+import static com.gmail.jumpercorderosa.planetabuffet.activity.MainActivity.PREFS_NAME;
 import static com.gmail.jumpercorderosa.planetabuffet.activity.MainActivity.trocaFragmento;
 
 public class LocationFragment extends Fragment {
 
     private DBHandler db;
-    private static final String PREFS_NAME = "pref";
 
     ImageView imgEspacoTenor;
     ImageView imgVillaBertolazzi;

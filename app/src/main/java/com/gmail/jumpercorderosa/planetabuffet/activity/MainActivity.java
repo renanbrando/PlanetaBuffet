@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.gmail.jumpercorderosa.planetabuffet.R;
 import com.gmail.jumpercorderosa.planetabuffet.db.DBHandler;
+import com.gmail.jumpercorderosa.planetabuffet.fragments.AboutFragment;
 import com.gmail.jumpercorderosa.planetabuffet.fragments.CountdownFragment;
 import com.gmail.jumpercorderosa.planetabuffet.fragments.EventsFragment;
 import com.facebook.share.widget.ShareDialog;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity
 
     private static final String KEEP_CONNECTED = "keep_connected";
     private static final String USER_ID = "user_id";
-    private static final String PREFS_NAME = "pref";
+    public static final String PREFS_NAME = "pref";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,12 +96,11 @@ public class MainActivity extends AppCompatActivity
 
         if(user != null) {
 
-            //TODO
-            //if(user.getBuffetId() != 0) {
-                trocaFragmento(R.id.main_fragment, new EventsFragment());
-            //} else {
-                //trocaFragmento(R.id.main_fragment, new FirstStepsFragment());
-            //}
+            if(user.getBuffetId() != 0) {
+                trocaFragmento(R.id.main_fragment, new CountdownFragment());
+            } else {
+                trocaFragmento(R.id.main_fragment, new FirstStepsFragment());
+            }
 
         }
     }
@@ -180,21 +180,27 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case R.id.nav_home:
                 fechaNavigation();
-                //trocaFragmento(R.id.main_fragment, new CountdownFragment());
+                trocaFragmento(R.id.main_fragment, new CountdownFragment());
                 break;
             case R.id.nav_profile:
+                startActivity(new Intent(MainActivity.this, SupplierDetailActivity.class));
+                break;
+            case R.id.nav_favorites:
                 //implementar RV com os itens que o cliente escolheu
                 break;
             case R.id.nav_eventos:
                 startActivity(new Intent(MainActivity.this, SuppliersSegmentActivity.class));
                 break;
             case R.id.nav_settings:
+                fechaNavigation();
                 trocaFragmento(R.id.main_fragment, new EventsFragment());
                 break;
             case R.id.nav_maps:
                 startActivity(new Intent(MainActivity.this, MapsActivity.class));
                 break;
             case R.id.nav_about:
+                fechaNavigation();
+                trocaFragmento(R.id.main_fragment, new AboutFragment());
                 break;
             case R.id.nav_classify:
                 Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -257,6 +263,17 @@ public class MainActivity extends AppCompatActivity
         transaction.replace(activity, fragment);
         //transaction.disallowAddToBackStack();
         transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    // Generic method for swapping fragments in the activity with extra value
+    private void trocaFragmentoComValor(int activity, Fragment fragment, String key, int value){
+        Bundle bundle = new Bundle();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        bundle.putInt(key, value);
+        fragment.setArguments(bundle);
+        transaction.replace(activity, fragment);
+        transaction.disallowAddToBackStack();
         transaction.commit();
     }
 

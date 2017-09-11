@@ -14,6 +14,7 @@ import com.gmail.jumpercorderosa.planetabuffet.model.Group;
 import com.gmail.jumpercorderosa.planetabuffet.model.Supplier;
 import com.gmail.jumpercorderosa.planetabuffet.model.SupplierSegment;
 import com.gmail.jumpercorderosa.planetabuffet.model.User;
+import com.gmail.jumpercorderosa.planetabuffet.model.UserSuppliers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String TABLE_BUFFET = "buffet";
     private static final String TABLE_SUPPLIER = "supplier";
     private static final String TABLE_SUPPLIER_SEGMENT = "supplier_segment";
+    private static final String TABLE_USER_SUPPLIERS = "user_suppliers";
 
     // Event Type Table Columns (Casamento/15 anos)
     private static final String EVENT_TYPE_ID = "event_type_id";
@@ -87,6 +89,8 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String SUPPLIER_CONTACT = "contact";
     private static final String SUPPLIER_PHONE_NUMBER = "phone_number";
 
+    // User Supplier Table Columns
+    private static final String USER_SUPPLIER_ID = "user_supplier_id";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -148,6 +152,13 @@ public class DBHandler extends SQLiteOpenHelper {
                     + SUPPLIER_PHONE_NUMBER + " TEXT"
                     + ")";
             db.execSQL(CREATE_SUPPLIER_TABLE);
+
+            String CREATE_USER_SUPPLIERS_TABLE = "CREATE TABLE " + TABLE_USER_SUPPLIERS + " ("
+                    + USER_SUPPLIER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + USER_ID + " INTEGER NOT NULL, "
+                    + SUPPLIER_ID + " INTEGER NOT NULL"
+                    + ")";
+            db.execSQL(CREATE_USER_SUPPLIERS_TABLE);
 
             insert(db);
 
@@ -745,6 +756,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_SUPPLIERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BUFFET);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BUFFET_SEGMENT);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENT_TYPE);
@@ -890,8 +902,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return rc;
     }
-        // Getting All Users
 
+    // Getting All Users
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<User>();
         // Select All Query
@@ -1258,6 +1270,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return supplierSegmentList;
     }
+
     // Getting supplierSegment count
     public int getSupplierSegmentCount() {
         int count;
@@ -1368,8 +1381,42 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         // return supplier list
         return suppliersList;
-
     }
+
+    // Getting All Suppliers
+    public List<Supplier> getAllSuppliersBySegment( int id_segment) {
+
+        List<Supplier> suppliersList = new ArrayList<Supplier>();
+
+        // Select All Query
+        String selectQuery = "SELECT * FROM " + TABLE_SUPPLIER
+                + "WHERE" + SUPPLIER_SEG_ID + "=" + id_segment;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Supplier supplier = new Supplier();
+                supplier.setId(Integer.parseInt(cursor.getString(0)));
+                supplier.setSegmentId(Integer.parseInt(cursor.getString(1)));
+                supplier.setBuffetId(Integer.parseInt(cursor.getString(2)));
+                supplier.setName(cursor.getString(3));
+                supplier.setCnpj(cursor.getString(4));
+                supplier.setContact(cursor.getString(5));
+                supplier.setPhoneNumber(cursor.getString(6));
+
+                // Adding contact to list
+                suppliersList.add(supplier);
+            } while (cursor.moveToNext());
+        }
+
+        db.close();
+        // return supplier list
+        return suppliersList;
+    }
+
     // Getting suppliers count
     public int getSuppliersCount() {
         int count;
@@ -1411,4 +1458,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 new String[]{String.valueOf(supplier.getId())});
         db.close();
     }
+
+    //====================================================================
+    // Adding new user supplier
+    //====================================================================
+    //TODO
 }

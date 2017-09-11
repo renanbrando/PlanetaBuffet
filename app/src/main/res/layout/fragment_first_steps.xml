@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.gmail.jumpercorderosa.planetabuffet.fragments.FirstStepsFragment"
-    android:id="@+id/content_first_steps">
+    android:id="@+id/fragment_first_steps">
 
     <TextView
         android:id="@+id/tvFirstSteps"
