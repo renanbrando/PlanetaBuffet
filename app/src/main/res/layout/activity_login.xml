@@ -61,10 +61,12 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/tvEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="276dp"
+                        android:layout_height="41dp"
                         android:layout_marginTop="60dp"
+                        android:background="@drawable/input_email"
                         android:hint="Login"
+                        android:paddingLeft="50dp"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
                         android:paddingTop="20dp" />
@@ -78,10 +80,12 @@
 
                     <EditText
                         android:id="@+id/etPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="278dp"
+                        android:layout_height="43dp"
                         android:layout_marginTop="80dp"
+                        android:background="@drawable/input_password"
                         android:hint="Password"
+                        android:paddingLeft="50dp"
                         android:imeActionId="@+id/login"
                         android:imeActionLabel="@string/action_sign_in_short"
                         android:imeOptions="actionUnspecified"

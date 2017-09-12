@@ -62,7 +62,6 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //intenção do seu aplicativo para o sistema operacional
-                //Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
@@ -71,7 +70,6 @@ public class SplashActivity extends AppCompatActivity {
         }, SPLASH_DISPLAY_LENGHT);
 
     }
-
 
     //banco
     //sincronização da splash screen

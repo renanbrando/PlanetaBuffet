@@ -199,6 +199,10 @@ public class LoginActivity extends AppCompatActivity {
             // skip login
             cbKeepConnected.setChecked(true);
             Toast.makeText(LoginActivity.this, "You are already connected", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            LoginActivity.this.finish(); //destroe esta activity, para não voltar para tela de login
         }
     }
 

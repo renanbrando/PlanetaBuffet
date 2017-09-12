@@ -8,16 +8,47 @@
     android:id="@+id/activity_supplier_detail"
     tools:context="com.gmail.jumpercorderosa.planetabuffet.activity.SupplierDetailActivity">
 
-    <Button
-        android:id="@+id/btnCall"
+    <TextView
+        android:id="@+id/tvSupplier"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/supplier_border"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CALL"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Contato: "/>
+
+        <TextView
+            android:id="@+id/tvSupplierContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3" />
+
+        <Button
+            android:id="@+id/btnCall"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_marginRight="16dp"/>
+
+    </LinearLayout>
+
 
     <CheckBox
         android:id="@+id/cbFavorite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save to your favorites"/>
+        android:layout_margin="16dp"
+        android:text="Save to your favorites" />
 
 </LinearLayout>

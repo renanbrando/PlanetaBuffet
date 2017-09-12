@@ -26,6 +26,9 @@
         android:layout_width="346dp"
         android:layout_height="50dp"
         android:background="@drawable/input_email"
+        android:padding="50dp"
+        android:textColor="#000"
+        android:hint="name"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="50dp"/>
@@ -35,13 +38,18 @@
         android:layout_width="346dp"
         android:layout_height="50dp"
         android:background="@drawable/input_email"
+        android:paddingLeft="50dp"
+        android:hint="user"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 
     <EditText
         android:id="@+id/etPassword"
+        android:inputType="textPassword"
         android:layout_width="346dp"
         android:layout_height="52dp"
+        android:paddingLeft="50dp"
+        android:hint="password"
         android:background="@drawable/input_password"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>

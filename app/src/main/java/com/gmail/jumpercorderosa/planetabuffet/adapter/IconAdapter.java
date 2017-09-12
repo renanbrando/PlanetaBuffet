@@ -2,6 +2,7 @@ package com.gmail.jumpercorderosa.planetabuffet.adapter;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gmail.jumpercorderosa.planetabuffet.R;
-import com.gmail.jumpercorderosa.planetabuffet.activity.LoginActivity;
-import com.gmail.jumpercorderosa.planetabuffet.activity.MainActivity;
+import com.gmail.jumpercorderosa.planetabuffet.activity.SupplierDetailActivity;
 import com.gmail.jumpercorderosa.planetabuffet.activity.SuppliersActivity;
 import com.gmail.jumpercorderosa.planetabuffet.activity.SuppliersSegmentActivity;
 
@@ -19,17 +19,15 @@ import com.gmail.jumpercorderosa.planetabuffet.activity.SuppliersSegmentActivity
 
 public class IconAdapter extends RecyclerView.Adapter<IconAdapter.ViewHolder> {
 
-    //instancia do db
-    //private DBHandler db;
     private IconData[] data;
-    //SuppliersSegmentActivity suppliersSegment = null;
-    //SuppliersActivity supplier = null;
+    public SuppliersSegmentActivity suppliersSegment = null;
+    public SuppliersActivity supplier = null;
 
     public IconAdapter(IconData[] data, SuppliersSegmentActivity suppliersSegment,
                        SuppliersActivity supplier ) {
         this.data = data;
-        //this.suppliersSegment = suppliersSegment;
-        //this.supplier = supplier;
+        this.suppliersSegment = suppliersSegment;
+        this.supplier = supplier;
     }
 
     @Override
@@ -66,39 +64,41 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.ViewHolder> {
         int segment_id = 0;
         int supplier_id = 0;
 
-
         public ViewHolder(final View itemView) {
             super(itemView);
 
-            imageView = (ImageView) itemView.findViewById(R.id.imageView);
-            textView = (TextView) itemView.findViewById(R.id.textView);
+            try {
+                imageView = (ImageView) itemView.findViewById(R.id.imageView);
+                textView = (TextView) itemView.findViewById(R.id.textView);
 
-            //if(IconAdapter.this.suppliersSegment != null) {
-            //    IconAdapter.this.suppliersSegment.current_supplier_segment_id = segment_id;
-            //}
+                this.textView.setOnClickListener(new View.OnClickListener() {
 
-            //if(IconAdapter.this.supplier != null) {
-                //IconAdapter.this.suppliersSegment.
-            //}
+                    public void onClick(View v) {
 
-            this.textView.setOnClickListener(new View.OnClickListener() {
+                        if(segment_id != 0)
+                            Toast.makeText(v.getContext(),
+                                    "Clicou no obj [" + Integer.toString(segment_id) + "]", Toast.LENGTH_SHORT).show();
+                        else if(supplier_id != 0)
+                            Toast.makeText(v.getContext(),
+                                    "Clicou no obj [" + Integer.toString(supplier_id) + "]", Toast.LENGTH_SHORT).show();
 
-                public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Clicou no obj [" + Integer.toString(segment_id) + "]", Toast.LENGTH_SHORT).show();
+                        if(supplier != null) {
+                            Intent activity = new Intent(supplier, SupplierDetailActivity.class);
+                            activity.putExtra("supplier_id", supplier_id);
+                            supplier.startActivity(activity);
+                        } else if (suppliersSegment != null) {
+                            Intent activity = new Intent(suppliersSegment, SuppliersActivity.class);
+                            activity.putExtra("seguiment_id", segment_id);
+                            suppliersSegment.startActivity(activity);
+                        }  else {
+                            Toast.makeText(v.getContext(), "Oooops", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
-                    Intent activity = new Intent(v.getContext().getApplicationContext(), SuppliersActivity.class);
-                    activity.putExtra("seguiment_id", segment_id);
-                    v.getContext().getApplicationContext().startActivity(activity);
-
-                    /*
-                    Intent intent = new Intent(context, SuppliersActivity.class);
-                    intent.putextra("your_extra","your_class_value");
-                    context.startActivity(intent);
-                    */
-
-                    //v.getContext().startActivity(SuppliersActivity.class);
-                }
-            });
+            } catch (Exception e) {
+                Log.e("aux", "Exception", e);
+            }
         }
     }
 }

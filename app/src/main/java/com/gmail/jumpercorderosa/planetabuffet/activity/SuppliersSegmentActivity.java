@@ -18,7 +18,6 @@ import java.util.List;
 public class SuppliersSegmentActivity extends AppCompatActivity {
 
     private DBHandler db;
-    public int current_supplier_segment_id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,6 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
         };
         */
 
-        //Como tentei usar e não consigo
         List<IconData> myList = new ArrayList<>();
 
         //percorre objetos da lista
@@ -66,21 +64,6 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        //Depois preciso passar o seguimento para a outra activity
-        //para mostrar apenas os fornecedores daquele seguimento...
-
-        //Intent intent = new Intent(this, SuppliersActivity.class);
-        //intent.putExtra("seguiment_id", current_supplier_segment_id);
-        //startActivity(intent);
-
-
     }
-    /*
-    public void trocaActivity(int supplier_segment_id) {
-        Intent intent = new Intent(this, SuppliersActivity.class);
-        intent.putExtra("seguiment_id", supplier_segment_id);
-        startActivity(intent);
-    }
-    */
 
 }

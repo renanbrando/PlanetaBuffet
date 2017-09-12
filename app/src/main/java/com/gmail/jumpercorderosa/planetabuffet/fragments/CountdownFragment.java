@@ -26,7 +26,6 @@ import java.util.Date;
 
 import static com.gmail.jumpercorderosa.planetabuffet.activity.MainActivity.PREFS_NAME;
 
-
 public class CountdownFragment extends Fragment {
 
     private DBHandler db;
@@ -62,14 +61,8 @@ public class CountdownFragment extends Fragment {
 
 
             try {
-
-                //Date conv_current_date = new Date();
                 Date conv_current_date = date_format.parse(current_date);
-
-                //Date conv_event_date = new Date();
                 Date conv_event_date = date_format.parse(event_date);
-
-                //long countdown = daysBetween(conv_event_date, conv_current_date);
 
                 int countdown = daysBetween(conv_current_date, conv_event_date);
 
@@ -83,9 +76,8 @@ public class CountdownFragment extends Fragment {
 
         }
 
-        /*
         //float icon do ladinho
-        shareDialog = new ShareDialog(this);
+       shareDialog = new ShareDialog(this);
        final FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +97,7 @@ public class CountdownFragment extends Fragment {
         });
 
 
-
+        /*
         //ImageViews vazias
         imgWedding = (ImageView) view.findViewById(R.id.img_wedding);
 
@@ -125,34 +117,6 @@ public class CountdownFragment extends Fragment {
 
         return view;
     }
-
-    public static Calendar getDatePart(Date date){
-        Calendar cal = Calendar.getInstance();       // get calendar instance
-        cal.setTime(date);
-        cal.set(Calendar.HOUR_OF_DAY, 0);            // set hour to midnight
-        cal.set(Calendar.MINUTE, 0);                 // set minute in hour
-        cal.set(Calendar.SECOND, 0);                 // set second in minute
-        cal.set(Calendar.MILLISECOND, 0);            // set millisecond in second
-
-        return cal;                                  // return the date part
-    }
-
-    /**
-     * This method also assumes endDate >= startDate
-     **/
-    /*
-    public static long daysBetween(Date startDate, Date endDate) {
-        Calendar sDate = getDatePart(startDate);
-        Calendar eDate = getDatePart(endDate);
-
-        long daysBetween = 0;
-        while (sDate.before(eDate)) {
-            sDate.add(Calendar.DAY_OF_MONTH, 1);
-            daysBetween++;
-        }
-        return daysBetween;
-    }
-    */
 
     public int daysBetween(Date d1, Date d2){
         return (int)( (d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
