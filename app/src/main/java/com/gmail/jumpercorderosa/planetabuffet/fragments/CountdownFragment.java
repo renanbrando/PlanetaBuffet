@@ -1,18 +1,14 @@
 package com.gmail.jumpercorderosa.planetabuffet.fragments;
 
 import android.content.SharedPreferences;
-import android.net.ParseException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
@@ -89,7 +85,7 @@ public class CountdownFragment extends Fragment {
 
                 if (ShareDialog.canShow(ShareLinkContent.class)) {
                     ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                            .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
+                            .setContentUrl(Uri.parse("http://www.planetakids.com.br/"))
                             .build();
                     shareDialog.show(linkContent);
                 }

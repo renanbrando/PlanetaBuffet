@@ -21,13 +21,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.facebook.share.widget.ShareDialog;
+
 import com.gmail.jumpercorderosa.planetabuffet.R;
 import com.gmail.jumpercorderosa.planetabuffet.db.DBHandler;
 import com.gmail.jumpercorderosa.planetabuffet.fragments.AboutFragment;
 import com.gmail.jumpercorderosa.planetabuffet.fragments.CountdownFragment;
 import com.gmail.jumpercorderosa.planetabuffet.fragments.EventsFragment;
-import com.facebook.share.widget.ShareDialog;
 import com.gmail.jumpercorderosa.planetabuffet.fragments.FirstStepsFragment;
+import com.gmail.jumpercorderosa.planetabuffet.fragments.ProfileFragment;
 import com.gmail.jumpercorderosa.planetabuffet.model.User;
 
 public class MainActivity extends AppCompatActivity
@@ -183,7 +185,8 @@ public class MainActivity extends AppCompatActivity
                 trocaFragmento(R.id.main_fragment, new CountdownFragment());
                 break;
             case R.id.nav_profile:
-                startActivity(new Intent(MainActivity.this, SupplierDetailActivity.class));
+                fechaNavigation();
+                trocaFragmento(R.id.main_fragment, new ProfileFragment());
                 break;
             case R.id.nav_favorites:
                 //implementar RV com os itens que o cliente escolheu

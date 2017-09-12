@@ -11,9 +11,13 @@
             android:icon="@drawable/ic_menu_profile"
             android:title="My account" />
         <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="Event settings" />
+        <item
             android:id="@+id/nav_eventos"
             android:icon="@drawable/ic_menu_tipo_evento"
-            android:title="Fornecedores" />
+            android:title="Suppliers" />
         <item
             android:id="@+id/nav_favorites"
             android:icon="@drawable/ic_menu_favorites"
@@ -26,10 +30,6 @@
 
     <item android:title="App">
         <menu>
-            <item
-                android:id="@+id/nav_settings"
-                android:icon="@drawable/ic_menu_settings"
-                android:title="Settings" />
             <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/ic_menu_copyright"

@@ -9,16 +9,47 @@
     android:id="@+id/fragment_first_steps">
 
     <TextView
-        android:id="@+id/tvFirstSteps"
+        android:id="@+id/tvFirstSteps1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Olá! Notamos que você é novo por aqui! =)
-Antes de prosseguir precisamos saber um pouquinho mais sobre a sua festa!"/>
+        android:layout_marginTop="90dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="Olá!"/>
+
+    <TextView
+        android:id="@+id/tvFirstSteps2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="Notamos que você é novo por aqui! =)"/>
+
+    <TextView
+        android:id="@+id/tvFirstSteps3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="Antes de prosseguir precisamos saber um pouquinho mais sobre a sua festa!"/>
 
     <Button
         android:id="@+id/btnEventSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Prosseguir"/>
+        android:text="Prosseguir"
+        android:textSize="20dp"
+        android:textColor="#FFF"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"/>
 </LinearLayout>

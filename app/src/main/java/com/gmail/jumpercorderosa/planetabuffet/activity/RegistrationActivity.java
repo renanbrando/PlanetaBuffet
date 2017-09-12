@@ -39,6 +39,8 @@ public class RegistrationActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnOK = (Button) findViewById(R.id.btnOK);
 
+        //textv.setShadowLayer(1, 0, 0, Color.BLACK);
+
         btnOK.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -62,6 +64,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 //adiciona novo usuario
                 User user = new User();
+                user.setEmail(name);
                 user.setLogin(login);
                 user.setPassword(password);
                 //user.setEmail(email);

@@ -4,22 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
+    android:gravity="center"
     android:id="@+id/fragment_calendar">
 
 
     <DatePicker
         android:id="@+id/simpleDatePicker"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:calendarViewShown="false"
         android:datePickerMode="spinner" />
 
     <Button
         android:id="@+id/picDate"
-        android:layout_width="match_parent"
+        android:layout_width="248dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginTop="10dp"
         android:text="OK"
-        android:onClick="datePicker"/>
+        android:textSize="20dp"
+        android:textColor="#FFF"
+        android:onClick="datePicker"
+        android:background="@color/colorPrimary"/>
 
     <!--TextView
         android:layout_below="@+id/picDate"
