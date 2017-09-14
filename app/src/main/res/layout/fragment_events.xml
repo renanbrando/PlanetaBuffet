@@ -23,7 +23,7 @@
                 android:contentDescription="@string/wedding_background"/>
 
             <TextView
-                android:text="@string/weddings"
+                android:text="@string/wedding"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -40,7 +40,7 @@
                     android:scaleType="centerCrop" />
 
                 <TextView
-                    android:text="ANNIVERSARY"
+                    android:text="@string/anniversary"
                     style="@style/PicassoTitle"/>
 
         </RelativeLayout>

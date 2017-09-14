@@ -14,7 +14,7 @@
         android:id="@+id/tvSupplierSegment"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Segment"
+        android:text="@string/segment"
         android:textSize="30dp"
         android:layout_gravity="center"/>
 

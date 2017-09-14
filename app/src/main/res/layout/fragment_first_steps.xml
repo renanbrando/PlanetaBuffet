@@ -17,7 +17,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:gravity="center"
-        android:text="Olá!"/>
+        android:text="@string/hi"/>
 
     <TextView
         android:id="@+id/tvFirstSteps2"
@@ -28,7 +28,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:gravity="center"
-        android:text="Notamos que você é novo por aqui! =)"/>
+        android:text="@string/introduction_part_2"/>
 
     <TextView
         android:id="@+id/tvFirstSteps3"
@@ -39,13 +39,13 @@
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:gravity="center"
-        android:text="Antes de prosseguir precisamos saber um pouquinho mais sobre a sua festa!"/>
+        android:text="@string/introduction_part_3"/>
 
     <Button
         android:id="@+id/btnEventSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Prosseguir"
+        android:text="@string/btn_continue"
         android:textSize="20dp"
         android:textColor="#FFF"
         android:background="@color/colorPrimary"

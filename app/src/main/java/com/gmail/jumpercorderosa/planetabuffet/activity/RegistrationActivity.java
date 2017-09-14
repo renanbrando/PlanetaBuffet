@@ -53,12 +53,12 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
 
                 if(name.equals("") || login.equals("") || password.equals("")) {
-                    Toast.makeText(v.getContext(), "All fields are mandatory! Please try again!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), R.string.mandatory_fields, Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 if (db.checkUser(login, password) ) {
-                    Toast.makeText(v.getContext(), "Login already exist! Please try another one!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), R.string.login_already_exist, Toast.LENGTH_LONG).show();
                     return;
                 }
 

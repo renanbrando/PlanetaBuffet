@@ -1,9 +1,14 @@
 package com.gmail.jumpercorderosa.planetabuffet.activity;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,6 +52,9 @@ public class SupplierDetailActivity extends AppCompatActivity {
 
         db = new DBHandler(this);
 
+        //obtem dados do usuario para atualiza-lo
+        SharedPreferences sharedPref = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        user_id = sharedPref.getInt("user_id", 0);
 
         //pega o supplier selecionado do outro fragment e carrega os dados do fornecedor
         Intent intent = getIntent();
@@ -55,11 +63,12 @@ public class SupplierDetailActivity extends AppCompatActivity {
         }
 
         final Supplier supplier = db.getSupplier(supplier_id);
+        boolean favorite = db.checkUserSupplier(user_id, supplier_id);
 
-        //obtem dados do usuario para atualiza-lo
-        SharedPreferences sharedPref = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        user_id = sharedPref.getInt("user_id", 0);
-
+        if(favorite) {
+            cbFavorite.setChecked(true);
+        }
+        
         //final User user = db.getUser(user_id);
 
         if(supplier != null) {
@@ -82,23 +91,37 @@ public class SupplierDetailActivity extends AppCompatActivity {
                         //ligacao.setData(Uri.parse("tel:982874502"));
                         ligacao.setData(Uri.parse("tel:" + telefone ));
 
-                    /*
-                    if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
-                        return;
-                    }
-                    */
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                ActivityCompat.requestPermissions((SupplierDetailActivity) v.getContext(), new String[]{Manifest.permission.CALL_PHONE}, 105);
+                            } else {
+                                startActivity(ligacao);
+                            }
+                        } else {
+                            startActivity(ligacao);
+                        }
+                        /*
+                        if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
 
-                        startActivity(ligacao);
+                            String[] permission_list = new String[1];
+                            permission_list[0] = Manifest.permission.CALL_PHONE;
+                            ActivityCompat.requestPermissions((SupplierDetailActivity) getApplicationContext(), permission_list, 1);
 
-                    } catch (ActivityNotFoundException e) {
-                        Toast.makeText(getApplicationContext(), "Error in your phone call" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            //    ActivityCompat#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for ActivityCompat#requestPermissions for more details.
+
+                            return;
+                        }
+                        */
+
+                    } catch (Exception e) {
+                        //Toast.makeText(getApplicationContext(), "Error in your phone call" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Em configurações, de permissão para o aplicativo fazer ligações!", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -116,7 +139,7 @@ public class SupplierDetailActivity extends AppCompatActivity {
                         db.addUserSupplier(user_sup);
                     } else {
                         Toast.makeText(getApplicationContext(), "Removido dos seus favoritos", Toast.LENGTH_SHORT).show();
-                        db.deleteUserSupplier(user_sup);
+                       db.deleteUserSupplier(user_sup);
                     }
               }
             });

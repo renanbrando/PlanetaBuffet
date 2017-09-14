@@ -26,7 +26,9 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.gmail.jumpercorderosa.planetabuffet.R;
 import com.gmail.jumpercorderosa.planetabuffet.db.DBHandler;
+import com.gmail.jumpercorderosa.planetabuffet.model.User;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -87,12 +89,12 @@ public class LoginActivity extends AppCompatActivity {
                 if(email.equals("")) {
                         //|| !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     //Toast.makeText(v.getContext(), "Please enter a valid email address", Toast.LENGTH_LONG).show();
-                    Toast.makeText(v.getContext(), "Please enter a login", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), R.string.please_enter_login, Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 if(password.equals("")) {
-                    Toast.makeText(v.getContext(), "Please a password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), R.string.please_enter_password, Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -114,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     //Login ou senha inválidos
-                    Toast.makeText(v.getContext(), "Login or password was entered incorrectly!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(), R.string.login_password_wrong, Toast.LENGTH_LONG).show();
                     return;
                 }
             }
@@ -124,10 +126,12 @@ public class LoginActivity extends AppCompatActivity {
         //Salva o keep connected no shared preferences
         cbKeepConnected.setOnClickListener(new View.OnClickListener() {
 
+            SharedPreferences sharedPref = LoginActivity.this.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPref = LoginActivity.this.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
+
                 if (cbKeepConnected.isChecked()) {
                     editor.putBoolean(KEEP_CONNECTED, true);
                     editor.apply();
@@ -159,6 +163,25 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
                         Log.i("LOG", "onCompleted: " + object.toString());
+
+                        try {
+                            String name = object.getString("name");
+
+                            String email = object.getString("email");
+
+                            Log.v("Email = ", " " + email);
+                            Toast.makeText(getApplicationContext(), "Name " + name, Toast.LENGTH_LONG).show();
+
+                            //adiciona novo usuario
+                            User user = new User();
+                            user.setEmail(name);
+                            user.setLogin(email);
+                            user.setActiveFlag(true);
+                            db.addUser(user);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
 
@@ -192,14 +215,10 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void skipLogin(){
-        SharedPreferences sharedPref = LoginActivity.this.getPreferences(Context.MODE_PRIVATE);
+    public void skipLogin() {
+        SharedPreferences sharedPref = LoginActivity.this.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         boolean connected = sharedPref.getBoolean(KEEP_CONNECTED, false);
-        if (connected){
-            // skip login
-            cbKeepConnected.setChecked(true);
-            Toast.makeText(LoginActivity.this, "You are already connected", Toast.LENGTH_SHORT).show();
-
+        if (connected) {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             LoginActivity.this.finish(); //destroe esta activity, para não voltar para tela de login

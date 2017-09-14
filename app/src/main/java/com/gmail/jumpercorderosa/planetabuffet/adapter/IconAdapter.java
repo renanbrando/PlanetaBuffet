@@ -75,12 +75,14 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.ViewHolder> {
 
                     public void onClick(View v) {
 
+                        /*
                         if(segment_id != 0)
                             Toast.makeText(v.getContext(),
                                     "Clicou no obj [" + Integer.toString(segment_id) + "]", Toast.LENGTH_SHORT).show();
                         else if(supplier_id != 0)
                             Toast.makeText(v.getContext(),
                                     "Clicou no obj [" + Integer.toString(supplier_id) + "]", Toast.LENGTH_SHORT).show();
+                        */
 
                         if(supplier != null) {
                             Intent activity = new Intent(supplier, SupplierDetailActivity.class);

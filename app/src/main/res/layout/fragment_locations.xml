@@ -25,7 +25,7 @@
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:text="Espaço Tenor"
+                android:text="@string/espaco_tenor"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -44,7 +44,7 @@
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:text="Villa Bertolazzi"
+                android:text="@string/villa_bertolazzi"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -60,23 +60,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Espaço Tenor II"
-                style="@style/PicassoTitle"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/img_planeta_morumbi"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop" />
-
-            <TextView
-                android:text="Morumbi"
+                android:text="@string/espaco_tenor_2"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -92,7 +76,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Alphaville"
+                android:text="@string/alphaville"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -108,7 +92,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Alto de Santana"
+                android:text="@string/alto_de_santana"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -124,7 +108,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Analia Franco"
+                android:text="@string/analia_franco"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -140,7 +124,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Alto Lapa"
+                android:text="@string/alto_da_lapa"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -156,7 +140,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Guarulhos"
+                android:text="@string/guarulhos"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -172,7 +156,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Jundiaí"
+                android:text="@string/jundiai"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -188,23 +172,24 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Casa da Árvore"
+                android:text="@string/casa_da_arvore"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
+
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/img_planeta_santana"
+                android:id="@+id/img_planeta_morumbi"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Santana"
+                android:text="@string/morumbi"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -220,11 +205,26 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Pompéia"
+                android:text="@string/pompeia"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_planeta_santana"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:text="@string/santana"
+                style="@style/PicassoTitle"/>
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -237,7 +237,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Tatuapé"
+                android:text="@string/tatuape"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -253,7 +253,7 @@
                 android:scaleType="centerCrop" />
 
             <TextView
-                android:text="Tatuapé II"
+                android:text="@string/tatuape_2"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>
@@ -266,10 +266,10 @@
                 android:id="@+id/img_planeta_vila_romana"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"/>
 
             <TextView
-                android:text="Planeta Vila Romana"
+                android:text="@string/vila_romana"
                 style="@style/PicassoTitle"/>
 
         </RelativeLayout>

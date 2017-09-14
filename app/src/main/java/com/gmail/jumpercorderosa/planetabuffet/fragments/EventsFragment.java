@@ -58,7 +58,7 @@ public class EventsFragment extends Fragment {
         imgWedding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Wedding", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Wedding", Toast.LENGTH_SHORT).show();
 
                 //o que fazer com esse hardcode???
                 user.setEventTypeId(1);
@@ -72,9 +72,7 @@ public class EventsFragment extends Fragment {
         imgAnniversary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //Intent i = new Intent(getApplicationContext(), )
-                Toast.makeText(getContext(), "Anniversary", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Anniversary", Toast.LENGTH_SHORT).show();
 
                 user.setEventTypeId(2);
                 db.updateUser(user);
@@ -87,8 +85,7 @@ public class EventsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //Intent i = new Intent(getApplicationContext(), )
-                Toast.makeText(getContext(), "Sweet Fifteen", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Sweet Fifteen", Toast.LENGTH_SHORT).show();
 
                 user.setEventTypeId(3);
                 db.updateUser(user);
@@ -101,8 +98,7 @@ public class EventsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //Intent i = new Intent(getApplicationContext(), )
-                Toast.makeText(getContext(), "Companies", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Companies", Toast.LENGTH_SHORT).show();
 
                 user.setEventTypeId(4);
                 db.updateUser(user);

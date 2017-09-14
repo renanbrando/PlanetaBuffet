@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:shadowColor="#FFF"
-            android:text="Sobre "
+            android:text="@string/about"
             android:gravity="center"
             android:textColor="@color/colorPrimary"
             android:layout_marginLeft="100dp"
@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="81dp"
             android:layout_height="wrap_content"
-            android:text="você"
+            android:text="@string/you"
             android:shadowColor="#FFF"
             android:textSize="30dp"
             android:textStyle="bold"
@@ -56,9 +56,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/input_email"
-        android:hint="name"
+        android:hint="@string/name"
         android:layout_marginBottom="5dp"
         android:paddingLeft="60dp"
+        android:nextFocusDown="@+id/etLogin"
+        android:inputType="text"
         android:maxLines="1"
         />
 
@@ -69,9 +71,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/input_email"
-        android:hint="user"
+        android:hint="@string/user"
         android:layout_marginBottom="5dp"
         android:paddingLeft="60dp"
+        android:nextFocusDown="@+id/etPassword"
+        android:inputType="text"
         android:maxLines="1"/>
 
     <EditText
@@ -80,7 +84,7 @@
         android:layout_width="317dp"
         android:layout_height="52dp"
         android:paddingLeft="60dp"
-        android:hint="password"
+        android:hint="@string/password"
         android:background="@drawable/input_password"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -124,7 +128,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"
-        android:text="OK"
+        android:text="@string/ok"
         android:textSize="20dp"
         android:textColor="#FFF"
         android:background="@color/colorPrimary"/>

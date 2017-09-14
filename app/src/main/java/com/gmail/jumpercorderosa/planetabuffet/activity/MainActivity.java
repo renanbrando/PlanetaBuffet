@@ -124,8 +124,8 @@ public class MainActivity extends AppCompatActivity
             } else {
                 builder = new AlertDialog.Builder(MainActivity.this);
             }
-            builder.setTitle("Exit")
-                    .setMessage("Are you sure you want to exit?")
+            builder.setTitle(R.string.exit)
+                    .setMessage(R.string.exit_message)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // sai do app
@@ -160,6 +160,8 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+        /*
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -167,6 +169,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, MapsActivity.class));
             return true;
         }
+        */
+        item.getItemId();
+        item.setEnabled(false);
 
         return super.onOptionsItemSelected(item);
     }
@@ -230,7 +235,7 @@ public class MainActivity extends AppCompatActivity
             }
 
             builder.setTitle("Exit")
-                    .setMessage("Are you sure you want to exit?")
+                    .setMessage(R.string.exit_message)
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
 
@@ -244,8 +249,11 @@ public class MainActivity extends AppCompatActivity
                             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                             drawer.closeDrawer(GravityCompat.START);
                             finish();
-                            android.os.Process.killProcess(android.os.Process.myPid());
-                            System.exit(0);
+
+                            //volta para a tela de login
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                            //android.os.Process.killProcess(android.os.Process.myPid());
+                            //System.exit(0);
                         }
                     })
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

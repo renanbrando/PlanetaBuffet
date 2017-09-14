@@ -5,27 +5,27 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_home"
-            android:title="Home" />
+            android:title="@string/home" />
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_profile"
-            android:title="My account" />
+            android:title="@string/my_account" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_settings"
-            android:title="Event settings" />
+            android:title="@string/event_settings" />
         <item
             android:id="@+id/nav_eventos"
             android:icon="@drawable/ic_menu_tipo_evento"
-            android:title="Suppliers" />
+            android:title="@string/suppliers" />
         <item
             android:id="@+id/nav_favorites"
             android:icon="@drawable/ic_menu_favorites"
-            android:title="Favorites" />
+            android:title="@string/favorites" />
         <item
             android:id="@+id/nav_maps"
             android:icon="@drawable/ic_menu_navigation"
-            android:title="Buffets" />
+            android:title="@string/buffets" />
     </group>
 
     <item android:title="App">
@@ -37,11 +37,11 @@
             <item
                 android:id="@+id/nav_classify"
                 android:icon="@drawable/ic_classify"
-                android:title="Classify this app" />
+                android:title="@string/classify_this_app" />
             <item
                 android:id="@+id/logout"
                 android:icon="@drawable/ic_menu_logout"
-                android:title="Logout" />
+                android:title="@string/logout" />
         </menu>
     </item>
 </menu>

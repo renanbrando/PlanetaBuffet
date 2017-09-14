@@ -23,6 +23,7 @@ public class ProfileFragment extends Fragment {
     EditText etNome;
     EditText etTipoFesta;
     EditText etBuffet;
+    EditText etBuffetAddress;
     EditText etDataEvento;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class ProfileFragment extends Fragment {
         etNome = (EditText) view.findViewById(R.id.etNome);
         etTipoFesta = (EditText) view.findViewById(R.id.etTpFesta);
         etBuffet = (EditText) view.findViewById(R.id.etBuffetEscolhido);
+        etBuffetAddress = (EditText) view.findViewById(R.id.etBuffetAdress);
         etDataEvento = (EditText) view.findViewById(R.id.etDataEvento);
 
         setHasOptionsMenu(true);
@@ -62,9 +64,12 @@ public class ProfileFragment extends Fragment {
                 desc = "";
             }
 
+            String date_format = user.getEventDate().replace("-", "/");
+
             etTipoFesta.setText(desc);
             etBuffet.setText(buffet.getSubsidiary());
-            etDataEvento.setText(user.getEventDate());
+            etBuffetAddress.setText(buffet.getAddress());
+            etDataEvento.setText(date_format);
         }
 
         return view;

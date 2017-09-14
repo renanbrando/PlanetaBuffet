@@ -247,6 +247,9 @@ public class DBHandler extends SQLiteOpenHelper {
             db.execSQL(insert_aux
                     + " VALUES (1, 'Tatuape II', 'Rua Nova Jerusalém - São Paulo - SP', '623', '06663340', '(11) 2283-1997', '121161180000169' )");
 
+            db.execSQL(insert_aux
+                    + " VALUES (1, 'Morumbi', 'Rua Nova Jerusalém - São Paulo - SP', '521', '06663340', '(11) 2283-1997', '121161180000169' )");
+
             //TENOR
             db.execSQL(insert_aux
                     + " VALUES (2, 'Espaço Tenor', 'Rua Ponta Grossa - Mandaqui - São Paulo - SP', '251', '06663340', '(11) 2283-4275', '121161180000169' )");
@@ -597,9 +600,9 @@ public class DBHandler extends SQLiteOpenHelper {
             Cursor cursor = db.query(TABLE_USER, new String[]{
                             USER_ID, LOGIN, PASSWORD, USER_EMAIL, USER_PHONE_NUMBER,
                             EVENT_DATE, EVENT_TYPE_ID, BUFFET_ID},
-                    //LOGIN + " = ? AND " + PASSWORD + " = ?",
-                    LOGIN + " = ?",
-                    new String[]{_login}, null, null, null, null);
+                    //LOGIN + " = ?",
+                    LOGIN + " =? AND " + PASSWORD + "=?",
+                    new String[]{_login, _senha}, null, null, null, null);
 
             //resultSet
             if (cursor != null) {
@@ -1213,30 +1216,31 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // Getting All Users
-    public List<UserSupplier> getAllUserSuppliers() {
-        List<UserSupplier> userSuppliersList = new ArrayList<UserSupplier>();
+    public boolean checkUserSupplier(int user_id, int supplier_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        try {
         // Select All Query
-        String selectQuery = "SELECT * FROM " + TABLE_USER_SUPPLIER;
+        Cursor cursor = db.query(TABLE_USER_SUPPLIER, new String[]{
+                        USER_ID, SUPPLIER_ID},
+                USER_ID + " =? AND " + SUPPLIER_ID + "=?",
+                new String[]{String.valueOf(user_id), String.valueOf(supplier_id)}, null, null, null, null);
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
-            do {
-                UserSupplier userSupplier = new UserSupplier(
-                        Integer.parseInt(cursor.getString(0)),
-                        Integer.parseInt(cursor.getString(1))
-                );
-
-                // Adding contact to list
-                userSuppliersList.add(userSupplier);
-            } while (cursor.moveToNext());
+            //resultSet
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            Log.e("aux", "select exception", e);
         }
 
         // return contact list
         db.close();
-        return userSuppliersList;
+        return false;
+
     }
 
     // Updating a user
@@ -1258,10 +1262,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // Deleting a user
     public void deleteUserSupplier(UserSupplier userSupplier) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_USER_SUPPLIER, USER_ID + " = ?",
-                new String[]{String.valueOf(userSupplier.getUserId())});
-        db.close();
+
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.delete(TABLE_USER_SUPPLIER, USER_ID + " =? AND " + USER_SUPPLIER_ID + "=?",
+                    new String[]{String.valueOf(userSupplier.getUserId()), String.valueOf(userSupplier.getSupplierId())});
+            db.close();
+        } catch (Exception e) {
+        Log.e("aux", "deleteRow exception", e);
+        }
     }
 
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.gmail.jumpercorderosa.planetabuffet.adapter.IconAdapter;
 import com.gmail.jumpercorderosa.planetabuffet.adapter.IconData;
@@ -24,13 +25,14 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suppliers_segment);
 
-        //obtem uma instancia do DB
-        db = new DBHandler(this);
+        try {
+            //obtem uma instancia do DB
+            db = new DBHandler(this);
 
-        //obtem dados da festa do usuário para obtenção dos fornecedores corretos
+            //obtem dados da festa do usuário para obtenção dos fornecedores corretos
 
-        //obtem lista de segmento de fornecedores
-        List<SupplierSegment> listSeg = db.getAllSuppliersSegment();
+            //obtem lista de segmento de fornecedores
+            List<SupplierSegment> listSeg = db.getAllSuppliersSegment();
 
         /*
         //Como esta no exemplo
@@ -40,29 +42,33 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
         };
         */
 
-        List<IconData> myList = new ArrayList<>();
+            List<IconData> myList = new ArrayList<>();
 
-        //percorre objetos da lista
-        for(SupplierSegment obj : listSeg) {
+            //percorre objetos da lista
+            for (SupplierSegment obj : listSeg) {
 
-            int x = obj.getSupplierSegmentId();
+                int x = obj.getSupplierSegmentId();
 
-            myList.add(new IconData(obj.getSupplierSegmentDesc(),
-                    getResources().getIdentifier(
-                            obj.getSegmentImgName(),
-                            "drawable",
-                            getApplicationContext().getPackageName()), obj.getSupplierSegmentId(), 0));
+                myList.add(new IconData(obj.getSupplierSegmentDesc(),
+                        getResources().getIdentifier(
+                                obj.getSegmentImgName(),
+                                "drawable",
+                                getApplicationContext().getPackageName()), obj.getSupplierSegmentId(), 0));
 
+            }
+
+            IconData[] data = myList.toArray(new IconData[myList.size()]);
+
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycleView);
+            IconAdapter adapter = new IconAdapter(data, this, null);
+
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(adapter);
+
+        }catch (Exception e) {
+            Log.e("RV_ERROR", e.getMessage());
         }
-
-        IconData[] data = myList.toArray(new IconData[myList.size()]);
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycleView);
-        IconAdapter adapter = new IconAdapter(data, this, null);
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
 
     }
 

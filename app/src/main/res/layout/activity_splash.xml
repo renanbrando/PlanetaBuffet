@@ -10,6 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
+    android:background="@color/colorAccent"
     android:gravity="center"
     tools:context="com.gmail.jumpercorderosa.planetabuffet.activity.SplashActivity">
 
@@ -24,11 +25,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Planeta Buffet"
+        android:text="@string/planeta_buffet"
         android:textAlignment="center"
         android:typeface="sans"
         android:textStyle="bold"
         android:textSize="35sp"
+        android:textColor="#FFF"
+        android:fontFamily="sans-serif-light"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

@@ -74,8 +74,8 @@ public class LocationFragment extends Fragment {
         Picasso.with(view.getContext()).load("https://www.espacotenor.com.br/fotos/index_imagem1.jpg").into(imgEspacoTenor);
         Picasso.with(view.getContext()).load("https://www.espacotenor.com.br/fotos/index_imagem2.jpg").into(imgVillaBertolazzi);
         Picasso.with(view.getContext()).load("https://www.espacotenor.com.br/fotos/index_imagem3.jpg").into(imgEspacoTenor2);
-        Picasso.with(view.getContext()).load("http://www.planetakids.com.br/wp-content/uploads/2017/06/Planeta-Morumbi.jpg").into(imgPlanetaMorumbi);
-        Picasso.with(view.getContext()).load("http://www.planetakids.com.br/wp-content/uploads/2017/06/Buffet-Planeta-Kids-Alphaville-16.jpg").into(imgPlanetaAlphaville);
+        Picasso.with(view.getContext()).load("http://www.planetakids.com.br/wp-content/uploads/2017/08/MG_0033-2.jpg").into(imgPlanetaMorumbi);
+        Picasso.with(view.getContext()).load("http://www.planetakids.com.br/wp-content/uploads/2017/03/M1L_0088-2-1-800x543-585x397-1.jpg").into(imgPlanetaAlphaville);
         Picasso.with(view.getContext()).load("http://www.planetakids.com.br/wp-content/uploads/2017/03/Fachada-Alto-de-santana-1-800x533-585x390.jpg").into(imgPlanetaAltoSantana);
         Picasso.with(view.getContext()).load("http://www.planetakids.com.br/wp-content/uploads/2017/03/LEA_28101-1-585x390-1.jpg").into(imgPlanetaAnaliaFranco);
         Picasso.with(view.getContext()).load("http://www.planetakids.com.br/wp-content/uploads/2017/03/fachada-lapa-2-2-baixa-1-800x523-585x382-1.jpg").into(imgPlanetaAltoLapa);
@@ -90,13 +90,12 @@ public class LocationFragment extends Fragment {
 
         //TODO==> tratar a excessão caso não não consiga carregar a img
 
-        imgEspacoTenor.setOnClickListener(new View.OnClickListener() {
+
+        imgPlanetaAlphaville.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(getApplicationContext(), )
-                Toast.makeText(v.getContext(), "Espaço Tenor", Toast.LENGTH_LONG).show();
+               //Toast.makeText(v.getContext(), "Alphaville", Toast.LENGTH_LONG).show();
 
-                //o que fazer com esse hardcode??? =/
                 user.setBuffetId(1);
                 db.updateUser(user);
 
@@ -104,48 +103,12 @@ public class LocationFragment extends Fragment {
             }
         });
 
-        imgVillaBertolazzi.setOnClickListener(new View.OnClickListener() {
+        imgPlanetaAltoSantana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Villa Bertolazzi", Toast.LENGTH_LONG).show();
+               //Toast.makeText(v.getContext(), "Alto de Santana", Toast.LENGTH_LONG).show();
 
                 user.setBuffetId(2);
-                db.updateUser(user);
-
-                trocaFragmento(R.id.main_fragment, new CalendarFragment());
-            }
-        });
-
-        imgEspacoTenor2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Espaço Tenor II", Toast.LENGTH_LONG).show();
-
-                user.setBuffetId(3);
-                db.updateUser(user);
-
-                trocaFragmento(R.id.main_fragment, new CalendarFragment());
-            }
-        });
-
-        imgPlanetaMorumbi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Morumbi", Toast.LENGTH_LONG).show();
-
-                user.setBuffetId(4);
-                db.updateUser(user);
-
-                trocaFragmento(R.id.main_fragment, new CalendarFragment());
-            }
-        });
-
-        imgPlanetaAlphaville.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Alphaville", Toast.LENGTH_LONG).show();
-
-                user.setBuffetId(5);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -155,9 +118,9 @@ public class LocationFragment extends Fragment {
         imgPlanetaAnaliaFranco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Analia Franco", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Analia Franco", Toast.LENGTH_LONG).show();
 
-                user.setBuffetId(6);
+                user.setBuffetId(3);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -167,9 +130,9 @@ public class LocationFragment extends Fragment {
         imgPlanetaAltoLapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Alto da Lapa", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Alto da Lapa", Toast.LENGTH_LONG).show();
 
-                user.setBuffetId(7);
+                user.setBuffetId(4);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -179,9 +142,9 @@ public class LocationFragment extends Fragment {
         imgPlanetaGuarulhos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Guarulhos", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Guarulhos", Toast.LENGTH_LONG).show();
 
-                user.setBuffetId(8);
+                user.setBuffetId(5);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -191,9 +154,9 @@ public class LocationFragment extends Fragment {
         imgPlanetaJundiai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Jundiai", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Jundiai", Toast.LENGTH_LONG).show();
 
-                user.setBuffetId(9);
+                user.setBuffetId(6);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -203,9 +166,9 @@ public class LocationFragment extends Fragment {
         imgPlanetaCasaArvore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Casa Arvore", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Casa Arvore", Toast.LENGTH_LONG).show();
 
-                user.setBuffetId(10);
+                user.setBuffetId(7);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -215,21 +178,9 @@ public class LocationFragment extends Fragment {
         imgPlanetaSantana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Santana", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Santana", Toast.LENGTH_LONG).show();
 
-                user.setBuffetId(11);
-                db.updateUser(user);
-
-                trocaFragmento(R.id.main_fragment, new CalendarFragment());
-            }
-        });
-
-        imgPlanetaPompeia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Pompeia", Toast.LENGTH_LONG).show();
-
-                user.setBuffetId(12);
+                user.setBuffetId(8);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -239,9 +190,33 @@ public class LocationFragment extends Fragment {
         imgPlanetaTatuape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Tatuape", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Tatuape", Toast.LENGTH_LONG).show();
 
-                user.setBuffetId(13);
+                user.setBuffetId(9);
+                db.updateUser(user);
+
+                trocaFragmento(R.id.main_fragment, new CalendarFragment());
+            }
+        });
+
+        imgPlanetaPompeia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(v.getContext(), "Pompeia", Toast.LENGTH_LONG).show();
+
+                user.setBuffetId(10);
+                db.updateUser(user);
+
+                trocaFragmento(R.id.main_fragment, new CalendarFragment());
+            }
+        });
+
+        imgPlanetaVilaRomana.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(v.getContext(), "Vila Romana", Toast.LENGTH_LONG).show();
+
+                user.setBuffetId(11);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -251,9 +226,9 @@ public class LocationFragment extends Fragment {
         imgPlanetaTatuape2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Tatuape II", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Tatuape II", Toast.LENGTH_LONG).show();
 
-                user.setBuffetId(14);
+                user.setBuffetId(12);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());
@@ -261,12 +236,50 @@ public class LocationFragment extends Fragment {
             }
         });
 
-        imgPlanetaVilaRomana.setOnClickListener(new View.OnClickListener() {
+        imgPlanetaMorumbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Vila Romana", Toast.LENGTH_LONG).show();
+                //Toast.makeText(v.getContext(), "Morumbi", Toast.LENGTH_LONG).show();
+
+                user.setBuffetId(13);
+                db.updateUser(user);
+
+                trocaFragmento(R.id.main_fragment, new CalendarFragment());
+            }
+        });
+
+        imgEspacoTenor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent i = new Intent(getApplicationContext(), )
+                //Toast.makeText(v.getContext(), "Espaço Tenor", Toast.LENGTH_LONG).show();
+
+                //o que fazer com esse hardcode??? =/
+                user.setBuffetId(14);
+                db.updateUser(user);
+
+                trocaFragmento(R.id.main_fragment, new CalendarFragment());
+            }
+        });
+
+        imgVillaBertolazzi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(v.getContext(), "Villa Bertolazzi", Toast.LENGTH_LONG).show();
 
                 user.setBuffetId(15);
+                db.updateUser(user);
+
+                trocaFragmento(R.id.main_fragment, new CalendarFragment());
+            }
+        });
+
+        imgEspacoTenor2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(v.getContext(), "Espaço Tenor II", Toast.LENGTH_LONG).show();
+
+                user.setBuffetId(16);
                 db.updateUser(user);
 
                 trocaFragmento(R.id.main_fragment, new CalendarFragment());

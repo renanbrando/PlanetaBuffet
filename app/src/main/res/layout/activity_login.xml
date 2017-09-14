@@ -45,7 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Are you ready for party?"
+                    android:text="@string/are_you_ready_for_party"
                     android:layout_marginBottom="50dp"
                     android:textAlignment="center"
                     android:textColor="#fff"
@@ -65,8 +65,9 @@
                         android:layout_marginBottom="10dp"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/input_email"
-                        android:hint="Login"
-                        android:inputType="textEmailAddress"
+                        android:hint="@string/login"
+                        android:nextFocusDown="@+id/etPassword"
+                        android:inputType="text"
                         android:maxLines="1"
                         android:paddingLeft="50dp" />
 
@@ -100,7 +101,7 @@
                         android:layout_marginTop="80dp"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/input_password"
-                        android:hint="Password"
+                        android:hint="@string/password"
                         android:imeActionId="@+id/login"
                         android:imeActionLabel="@string/action_sign_in_short"
                         android:imeOptions="actionUnspecified"
@@ -116,9 +117,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="30dp"
-                    android:text="Keep Connected"
+                    android:text="@string/keep_connected"
                     android:textStyle="bold"
-                    android:textColor="#4527A0" />
+                    android:textColor="#FFF" />
 
                 <TextView
                     android:id="@+id/tvPasswordForgotten"
@@ -127,7 +128,7 @@
                     android:layout_marginLeft="220dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
-                    android:text="Forgotten your password?"
+                    android:text="@string/forgotten_your_password"
                     android:textColor="#4527A0"
                     android:textStyle="bold"
                     android:layout_weight="0.05" />
@@ -136,10 +137,10 @@
                     android:id="@+id/btnEmailLogin"
                     style="?android:textAppearanceSmall"
                     android:layout_width="210dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="36dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="16dp"
-                    android:text="Log in"
+                    android:text="@string/login"
                     android:textStyle="bold"
                     android:background="@color/colorPrimary"
                     android:textColor="#FFF"/>

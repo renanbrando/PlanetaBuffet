@@ -22,7 +22,7 @@
         android:layout_marginLeft="75dp"
         android:layout_marginRight="75dp"
         android:layout_marginTop="10dp"
-        android:text="OK"
+        android:text="@string/ok"
         android:textSize="20dp"
         android:textColor="#FFF"
         android:onClick="datePicker"

@@ -19,21 +19,21 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Versão 1.0"
+        android:text="@string/version_1_0"
         android:textAlignment="center"
         android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Developed by Danielle Pereira"
+        android:text="@string/developed_by"
         android:textAlignment="center"
         android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Criado as pressas no ano de 2017 por uma aluna completamente perdida, este app deu tão certo que hoje é utilizado por todas as redes de buffet do Brasil! #tomara"
+        android:text="@string/developed_by_description"
         android:layout_marginTop="10dp"
         android:textAlignment="center"/>
 
