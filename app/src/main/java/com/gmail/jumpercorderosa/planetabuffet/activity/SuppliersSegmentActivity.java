@@ -66,7 +66,7 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(adapter);
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             Log.e("RV_ERROR", e.getMessage());
         }
 

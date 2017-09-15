@@ -53,13 +53,13 @@ public class ProfileFragment extends Fragment {
 
             String desc;
             if(user.getEventTypeId() == 1) {
-                desc = "Wedding";
+                desc = "Casamento";
             } else if(user.getEventTypeId() == 2) {
-                desc = "Anniversary";
+                desc = "Aniversário";
             } else if(user.getEventTypeId() == 3) {
-                desc = "Sweet Fifteen";
+                desc = "Debutante";
             } else if(user.getEventTypeId() == 4) {
-                desc = "Corporate Parties";
+                desc = "Festa corporativa";
             } else {
                 desc = "";
             }

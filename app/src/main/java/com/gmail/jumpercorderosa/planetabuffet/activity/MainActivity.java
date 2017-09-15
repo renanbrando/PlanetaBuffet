@@ -193,9 +193,9 @@ public class MainActivity extends AppCompatActivity
                 fechaNavigation();
                 trocaFragmento(R.id.main_fragment, new ProfileFragment());
                 break;
-            case R.id.nav_favorites:
+            //case R.id.nav_favorites:
                 //implementar RV com os itens que o cliente escolheu
-                break;
+                //break;
             case R.id.nav_eventos:
                 startActivity(new Intent(MainActivity.this, SuppliersSegmentActivity.class));
                 break;
