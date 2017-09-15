@@ -72,4 +72,8 @@ public class SuppliersSegmentActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 }

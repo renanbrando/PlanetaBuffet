@@ -12,7 +12,8 @@
     android:orientation="vertical"
     android:background="@color/colorAccent"
     android:gravity="center"
-    tools:context="com.gmail.jumpercorderosa.planetabuffet.activity.SplashActivity">
+    tools:context="com.gmail.jumpercorderosa.planetabuffet.activity.SplashActivity"
+    android:weightSum="1">
 
     <ImageView
         android:layout_width="250dp"
@@ -20,16 +21,17 @@
         app:srcCompat="@drawable/ic_launcher"
         android:id="@+id/logoPlanetaBuffet"
         android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
         android:layout_centerInParent="true" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/planeta_buffet"
         android:textAlignment="center"
         android:typeface="sans"
         android:textStyle="bold"
-        android:textSize="35sp"
+        android:textSize="50sp"
         android:textColor="#FFF"
         android:fontFamily="sans-serif-light"
         android:textAppearance="?android:attr/textAppearanceLarge" />

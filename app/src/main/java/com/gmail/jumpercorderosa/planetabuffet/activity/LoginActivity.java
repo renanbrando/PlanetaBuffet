@@ -22,10 +22,13 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.LoggingBehavior;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.gmail.jumpercorderosa.planetabuffet.R;
 import com.gmail.jumpercorderosa.planetabuffet.db.DBHandler;
+import com.gmail.jumpercorderosa.planetabuffet.fragments.CountdownFragment;
+import com.gmail.jumpercorderosa.planetabuffet.fragments.FirstStepsFragment;
 import com.gmail.jumpercorderosa.planetabuffet.model.User;
 
 import org.json.JSONException;
@@ -58,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
+        FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
         setContentView(R.layout.activity_login);
 
         db = new DBHandler(this);
@@ -170,12 +174,13 @@ public class LoginActivity extends AppCompatActivity {
                             String email = object.getString("email");
 
                             Log.v("Email = ", " " + email);
-                            Toast.makeText(getApplicationContext(), "Name " + name, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), "Name " + name, Toast.LENGTH_LONG).show();
 
                             //adiciona novo usuario
                             User user = new User();
                             user.setEmail(name);
-                            user.setLogin(email);
+                            user.setLogin(name);
+                            user.setPassword("facebook");
                             user.setActiveFlag(true);
                             db.addUser(user);
 
