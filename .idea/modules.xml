@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PlanetaBuffet7-master-master.iml" filepath="$PROJECT_DIR$/PlanetaBuffet7-master-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PlanetBuffet.iml" filepath="$PROJECT_DIR$/PlanetBuffet.iml" />
+      <module fileurl="file://C:\Users\logonrm\Desktop\PlanetBuffet\PlanetaBuffet7-master-master.iml" filepath="C:\Users\logonrm\Desktop\PlanetBuffet\PlanetaBuffet7-master-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\logonrm\Desktop\PlanetBuffet\app\app.iml" filepath="C:\Users\logonrm\Desktop\PlanetBuffet\app\app.iml" />
     </modules>
   </component>
 </project>
