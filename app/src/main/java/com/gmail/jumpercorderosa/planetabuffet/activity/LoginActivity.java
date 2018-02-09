@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 //verifica se o usuario/senha estão na base
-                if (db.checkUser(email, password)) {
+                if (db.checkUser(email.toString().trim(), password)) {
 
                     //salva USER_ID no sharedPreferences
                     int user_id = db.getUserId(email);
